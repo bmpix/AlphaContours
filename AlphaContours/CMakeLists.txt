@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.1)
+project(AlphaContours)
+find_package(CGAL REQUIRED)
+find_package(Eigen3 3.4 REQUIRED NO_MODULE)
+add_compile_options(/permissive- /bigobj /wd4503)
+add_executable(AlphaContours computeAlpha.h computeAlpha.cpp MatlabUtils.h MatlabUtils.cpp typedefs.h typedefs.cpp main.h main.cpp)
