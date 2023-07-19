@@ -1,0 +1,41 @@
+function mesh = MeshInfoSteklovOperator(boundaryCurve,pointCoords, massMatrix, QQ, numEigs)
+
+for k=1:numel(boundaryCurve)
+    mesh.pointCoords{k} = pointCoords{k};
+    mesh.massMatrix{k} = massMatrix{k};
+    mesh.QQ{k} = QQ{k};
+    mesh.nv{k} = size(boundaryCurve{k},1)-1;%;
+    numEigs = min(numEigs, mesh.nv{k});
+    mesh.area{k} = diag(mesh.massMatrix{k});
+
+    mesh.steklovOperator{k} = mesh.QQ{k};
+    %mesh.steklovOperator{k} = -mesh.steklovOperator{k};
+    mesh.Ae{k} = massMatrix{k};
+%     N = cell2mat(mesh.nv);
+%     mesh.N{k} = N(:,1:2:end);
+ end
+
+
+mesh.steklovOperator = blkdiag(QQ{:});
+mesh.Ae = blkdiag(massMatrix{:});
+[mesh.steklovBasis, mesh.eigenvalues] = eigs(mesh.steklovOperator, mesh.Ae, numEigs, 1e-5);
+mesh.eigenvalues = diag(mesh.eigenvalues);
+
+%sort eigenvalues
+[mesh.eigenvalues,idx] = sort(mesh.eigenvalues,'ascend');
+mesh.steklovBasis = mesh.steklovBasis';
+mesh.steklovBasis = mesh.steklovBasis(idx,:);
+mesh.steklovBasis = mesh.steklovBasis';
+
+
+% for k=1:numel(boundaryCurve)
+%     try
+%         [mesh.steklovBasis{k}, mesh.eigenvalues{k}] = eigs(mesh.steklovOperator{k}, mesh.Ae{k}, numEigs, 1e-5); %numEigs --> mesh.nv{k}
+%     catch
+%         % In case of trouble make the laplacian definite
+%         [mesh.steklovBasis{k}, mesh.eigenvalues{k}] = eigs(mesh.steklovOperator{k} - 1e-8*speye(mesh.nv{k}), mesh.Ae{k}, numEigs,'sm');
+%     end
+% 
+%     mesh.eigenvalues{k} = diag(mesh.eigenvalues{k});
+% end
+end

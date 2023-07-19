@@ -1,0 +1,2 @@
+C:\Users\myronovm\Documents\GitHub\sketch_laplacian\Commute_Fmap_basic_demo_for_sketches\triangle\Triangle\x64\Debug\Triangle.exe
+C:\Users\myronovm\Documents\GitHub\sketch_laplacian\Commute_Fmap_basic_demo_for_sketches\triangle\Triangle\x64\Debug\Triangle.pdb
