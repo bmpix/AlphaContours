@@ -1,2 +1,0 @@
-segmentsStart = [];
-segmentsEnd = [];
