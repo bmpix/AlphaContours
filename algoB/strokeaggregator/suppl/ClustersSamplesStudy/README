@@ -1,8 +1,0 @@
-ClustersSamplesStudy_Original
-	This file shows the exact questionnaire used in the user study. Participants were asked to draw over the sketchy images on paper.
-
-ClustersSamplesStudy_Results_from_Users
-	This file shows all individual answers. Blue and green dots indicate the answers having the same topology. The first blue and/or green dots in a row are labeled with the respective counts along the row. For instance, “8/10” means 8 out of 10 participants answered the same labeled topology.
-
-ClustersSamplesStudy_Results_with_Histograms
-	This file shows for each individual stroke cluster, the number of aggregate curves consolidated by the participants. For instance, cluster #4 on page 5 is ignored by 4 out of 10 participants and the rest 6 participants drew over iit with a single aggregate line.
