@@ -5,8 +5,8 @@ addpath(genpath('../SGP21_discreteOptimization-main/'));
 mesh_dir = 'input/';
 
 %actual paper inputs, in the order they appear
-filename = 'bear';
-%filename = "turtle_more_pts";
+%filename = 'bear';
+filename = "turtle_more_pts";
 %filename = 'Penguin';
 
 %% Alpha Contours plot parameters

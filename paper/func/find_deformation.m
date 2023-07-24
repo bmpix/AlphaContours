@@ -16,22 +16,22 @@ nodes3D = nodes;
 %% inputs
 
 % % Rabbit_05
-b10 = 237; %left ear
-b11 = 99; %right ear
-b20 = [926:4:950]'; %head
-b = [b10;b11;b20]; % all handles
+%b10 = 237; %left ear
+%b11 = 99; %right ear
+%b20 = [926:4:950]'; %head
+%b = [b10;b11;b20]; % all handles
 
 % Fox_072
-% b10 = 1304; %nose
-% b11 = 269; %tale
-% b12 = 1342; %neck
-% b13 = [1128,1060]'; %ears
-% b14 = 728; %728; %paw
-% b15 = 1215; %1940; %back
-% b16 = 944; %chest
-% b17 = 2896; %paw
-% b20 = [1864:3:1876,844:3:854,1595:3:1608]'; %fixed handles
-% b = [b10;b11;b12;b13;b14;b15;b16;b17;b20]; %all handles
+ b10 = 1304; %nose
+ b11 = 269; %tale
+ b12 = 1342; %neck
+ b13 = [1128,1060]'; %ears
+ b14 = 728; %728; %paw
+ b15 = 1215; %1940; %back
+ b16 = 944; %chest
+ b17 = 2896; %paw
+ b20 = [1864:3:1876,844:3:854,1595:3:1608]'; %fixed handles
+ b = [b10;b11;b12;b13;b14;b15;b16;b17;b20]; %all handles
 
 %% new input deformation
 
@@ -55,10 +55,10 @@ bc20 = nodes3D(b20,:); %fixed handles
 %% deformation
 
 % Rabbit_05
-bc = [bc10;bc11;bc20];
+%bc = [bc10;bc11;bc20];
 
 % % Fox_072
-%bc = [bc10;bc11;bc12;bc13;bc14;bc15;bc16;bc17;bc20];
+bc = [bc10;bc11;bc12;bc13;bc14;bc15;bc16;bc17;bc20];
 
 [U,data,SS,R] = arap(nodes3D, triangles, b, bc);
 
