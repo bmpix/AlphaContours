@@ -1,10 +1,20 @@
-# AlphaContours
-A reference implementation of the Alpha Contours algorithm.
+This is a reference implementation of the 'Differential Operators on Sketches via Alpha Contours' by Mariia Myronova, William Neveu, and Mikhail Bessmeltsev, ACM Transactions on Graphics (SIGGRAPH 2023).
 
+Structure of the repository:
+
+```
+AlphaContours/ -- C++ code of the main algorithm
+SGP21_discreteOptimization-main/ -- a few files from https://github.com/llorz/SGP21_discreteOptimization with a minor change in their energy
+algoB/ -- python code to compare with StrokeAggregator
+paper/ -- Matlab scripts to reproduce figures in the paper
+svg_to_matlab/ -- a Windows binary to convert .svg -> .m
+```
+
+# Main algorithm
 Command line: 
 ```AlphaContours drawing.m [alpha]```
 
-Drawing.m is a vector drawing in a vector format (see the examples folder).
+Drawing.m is a vector drawing in a vector format (see the inputs folder). You can convert your own svg to .m using the binary in the 'svg_to_matlab' folder.
 
 Alpha is the radius; when not specified, it is computed automatically. 
 
@@ -24,5 +34,15 @@ Eigen3 (tested with 3.4.0)
 
 CMake
 
+# Building
+We have only tried building under Windows, but the binary can be succefully run with wine under Mac. To build the C++ code
+```cd AlphaContours
+mkdir build
+cd build
+cmake ../
+```
+
+Then build the visual studio project as usual. Then move the binary, together with mpfr-6.dll and gmp-10.dll into AlphaContours/bin.
+
 # Reference Binary
-For the C++ part of the code, [here](http://www-labs.iro.umontreal.ca/~bmpix/AlphaContours/AlphaContoursBinary.zip) is the reference binary for Windows.
+If you don't want to compile anything, [here](http://www-labs.iro.umontreal.ca/~bmpix/AlphaContours/AlphaContoursBinary.zip) is the reference binary for Windows.
