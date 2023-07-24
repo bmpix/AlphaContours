@@ -46,3 +46,8 @@ Then build the visual studio project as usual. Then move the binary, together wi
 
 # Reference Binary
 If you don't want to compile anything, [here](http://www-labs.iro.umontreal.ca/~bmpix/AlphaContours/AlphaContoursBinary.zip) is the reference binary for Windows.
+
+# External code
+To compute functional maps on our domains, we use the implementation of "Discrete Optimization for Shape Matching" by Jing Ren, Simone Melzi, Peter Wonka, and Maks Ovsjanikov from [here](https://github.com/llorz/SGP21_discreteOptimization). We have slightly modified their function compute_fmap.m.
+
+To triangulate, we use the Triangle library by Jonathan Richard Shewchuk from [here](https://www.cs.cmu.edu/~quake/triangle.html). It is 'triangle.exe' in our repository.
