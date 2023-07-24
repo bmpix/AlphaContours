@@ -1,4 +1,5 @@
-function [cppContour,cppContourInner,boundaryCurve,seedPts,radius,pgon] = contour_cpp(mesh_dir,filename,quiet)
+function [cppContour,cppContourInner,boundaryCurve,seedPts,radius,pgon] = contour_cpp(mesh_dir,filename,quiet,alpha)
+%normally alpha is not passed, then it is computed automatically
 fullFilename = strcat(mesh_dir,filename,'.m');
 run(fullFilename);
 [boundaryCurve,~] = mergeCurvesSharingEndpoints(boundaryCurve,openCurve);
@@ -38,43 +39,18 @@ fclose(f);
 
 command = '';
 if ispc
-    pathToExe = "../cpp/bin/AlphaContours.exe";
+    pathToExe = "../AlphaContours/bin/AlphaContours.exe";
 elseif ismac
-    %pathToExe = "../cpp/bin/AlphaContours";
     command = '/usr/local/bin/wine64 ';
-    pathToExe = "../cpp/bin/AlphaContours.exe";
+    pathToExe = "../AlphaContours/bin/AlphaContours.exe";
 end
 
-%% RADIUS:
-
-% input radius value:
-%ss = sprintf('%s\"%s\" %s %f', command, pathToExe, curvesFilename, radius)
-%ss = sprintf('%s"%s" %s %f -j', command, pathToExe, curvesFilename, radius) 
-
-% authomatically compute radius:
-ss = sprintf('%s\"%s\" %s', command, pathToExe, curvesFilename)
-%ss = sprintf('%s"%s" %s -j', command, pathToExe, curvesFilename)
-
-%% For Fig.19, the radii for fmaps:
-%radius = 13; %for Hummingbird_11
-%radius = 8; %for Bird
-%radius = 12; %for daisy_dashed
-%radius = 10; %for Rabbit_05
-%radius = 50; %for Wizard_06
-%radius = 6; %for Fox_07
-%radius = 46; %for Witch_08
-%radius = 37; %for Spider_Man_07
-
-% and uncomment this line:
-%ss = sprintf('%s\"%s\" %s %f', command, pathToExe, curvesFilename, radius)
-
-%% For Fig.18 (filename = 'Toucan'), uncomment one the following lines:
-%radius = 6.877796268488884 % automatically computed
-%radius = 6.877796268488884/2;
-%radius = 6.877796268488884*2;
-
-% and uncomment this line:
-%ss = sprintf('%s\"%s\" %s %f', command, pathToExe, curvesFilename, radius)
+if (nargin <= 3)
+    ss = sprintf('%s\"%s\" %s', command, pathToExe, curvesFilename)
+else
+    radius = alpha;
+    ss = sprintf('%s\"%s\" %s %f', command, pathToExe, curvesFilename, alpha)
+end
 
 %% 
 system(ss);
