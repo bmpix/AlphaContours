@@ -1,9 +1,21 @@
+%NOTE: for some inputs, this takes a while (e.g., spiderman). Grab some
+%coffee or go for a walk.
+
 clear; close all; %clearvars;
 addpath(genpath(pwd));
 addpath(genpath('../SGP21_discreteOptimization-main/'));
 
 mesh_dir = 'input/';
-filename = "Spider_Man_07";
+
+filename = "Hummingbird_11"; 
+%filename = "Bird"; 
+%filename = 'daisy_dashed';
+%filename = "Rabbit_05"; 
+%filename = "Wizard_06"; 
+%filename = "Fox_07"; 
+%filename = "Witch_08";
+%filename = "Spider_Man_07";
+
 filename2 = strcat(filename,'2');
 edgeWidth = 1.5;
 shapeColor = '#8cb4f4';
@@ -12,11 +24,10 @@ pointSize = 15;
 
 command = '';
 if ispc
-    pathToExe = "../cpp/bin/AlphaContours.exe";
+    pathToExe = "../AlphaContours/bin/AlphaContours.exe";
 elseif ismac
-    %pathToExe = "../cpp/bin/AlphaContours";
     command = '/usr/local/bin/wine64 ';
-    pathToExe = "../cpp/bin/AlphaContours.exe";
+    pathToExe = "../AlphaContours/bin/AlphaContours.exe";
 end
 
 %runs a line search over the radius for the optimal fmap

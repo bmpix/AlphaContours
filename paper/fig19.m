@@ -1,17 +1,35 @@
+%This script reproduces Fig.18 with precomputed radii. 
+%To compute the radii, please run optimalFmap.m
+
 clear; close all; %clearvars;
 addpath(genpath(pwd));
 addpath(genpath('../SGP21_discreteOptimization-main/'));
 
 mesh_dir = 'input/';
 
-filename1 = "Hummingbird_11"; 
+%filename1 = "Hummingbird_11"; 
+%alpha = 13; %for Hummingbird_11
+
 %filename1 = "Bird"; 
+%alpha = 8; %for Bird
+
 %filename1 = 'daisy_dashed';
-%filename1 = "Rabbit_05"; 
+%alpha = 12; %for daisy_dashed
+
+filename1 = "Rabbit_05"; 
+alpha = 10; %for Rabbit_05
+
 %filename1 = "Wizard_06"; 
-%filename1 = "Fox_07"; 
+%alpha = 50; %for Wizard_06
+
+%filename1 = "Fox_07";
+%alpha = 6; %for Fox_07
+
 %filename1 = "Witch_08";
+%alpha = 46; %for Witch_08
+
 %filename1 = "Spider_Man_07";
+%alpha = 37; %for Spider_Man_07
 
 %% Alpha Contours plot parameters
 pointSize = 15;
@@ -24,7 +42,7 @@ contourColor = '#1c4f99';
 %% FIRST SHAPE
 %% run cpp algo to find the contours
 % in contour_cpp, use the radius found by optimalFmap.m instead of automatically computed one:
-[cppContour, cppContourInner, boundaryCurve, seedPts, radius, pgon] = contour_cpp(mesh_dir,filename1,false);
+[cppContour, cppContourInner, boundaryCurve, seedPts, radius, pgon] = contour_cpp(mesh_dir,filename1,false,alpha);
 
 % if there are no inner contours, create an empty cell array
 if ~exist('cppContourInner','var')
@@ -66,7 +84,7 @@ writeOBJ(strcat(mesh_dir,meshFilename1),nodes1,triangles1);
 filename2 = strcat(filename1,'2');
 
 %% run cpp algo to find the contours
-[cppContour2,cppContourInner2,boundaryCurve2,seedPts2] = contour_cpp(mesh_dir,filename2,'true');
+[cppContour2,cppContourInner2,boundaryCurve2,seedPts2] = contour_cpp(mesh_dir,filename2,'true',alpha);
 
 %% pull overlapping contours in respective normal directions
 [contours2, contoursToPlot2] = pullContours_cpp(boundaryCurve2, cppContour2, cppContourInner2, edgeWidth, filename2);
