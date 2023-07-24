@@ -45,7 +45,7 @@ cmake ../
 Then build the visual studio project as usual. Then move the binary, together with mpfr-6.dll and gmp-10.dll into AlphaContours/bin.
 
 # Reference Binary
-If you don't want to compile anything, [here](http://www-labs.iro.umontreal.ca/~bmpix/AlphaContours/AlphaContoursBinary.zip) is the reference binary for Windows.
+If you don't want to compile anything, [here](http://www-labs.iro.umontreal.ca/~bmpix/AlphaContours/AlphaContoursBinary.zip) is the reference binary for Windows. Unzip it into AlphaContours/bin. After that, you should be able to run reproduce all the figures by running the scripts in the paper/ folder, except for Fig.16 that requires installation of [StrokeStrip](https://github.com/davepagurek/StrokeStrip) and [StrokeAggregator](https://www.cs.ubc.ca/labs/imager/tr/2018/StrokeAggregator/).
 
 # External code
 To compute functional maps on our domains, we use the implementation of "Discrete Optimization for Shape Matching" by Jing Ren, Simone Melzi, Peter Wonka, and Maks Ovsjanikov from [here](https://github.com/llorz/SGP21_discreteOptimization). We have slightly modified their function compute_fmap.m.
