@@ -45,11 +45,10 @@ fclose(f);
 
 command = '';
 if ispc
-    pathToExe = "../cpp/bin/AlphaContours.exe";
+    pathToExe = "../AlphaContours/bin/AlphaContours.exe";
 elseif ismac
-    %pathToExe = "../cpp/bin/AlphaContours";
     command = '/usr/local/bin/wine64 ';
-    pathToExe = "../cpp/bin/AlphaContours.exe";
+    pathToExe = "../AlphaContours/bin/AlphaContours.exe";
 end
 
 ss = sprintf('%s\"%s\" %s %f', command, pathToExe, curvesFilename, radius)

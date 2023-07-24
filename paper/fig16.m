@@ -32,4 +32,5 @@ holepts = seedPts;
 [nodes, triangles, ~] = findTriangulationForCpp(contours, contoursToPlot, holepts, boundaryCurve, edgeWidth, filename, shapeColor, contourColor);
 
 %% StrokeAggregator + StrokeStrip (algo B for comparison with Alpha Contours)
+%NOTE: this requires external packages StrokeAggregator and StrokeStrip.
 algoBTest(boundaryCurve, filename, mesh_dir, edgeWidth);
