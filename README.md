@@ -51,3 +51,26 @@ If you don't want to compile anything, [here](http://www-labs.iro.umontreal.ca/~
 To compute functional maps on our domains, we use the implementation of "Discrete Optimization for Shape Matching" by Jing Ren, Simone Melzi, Peter Wonka, and Maks Ovsjanikov from [here](https://github.com/llorz/SGP21_discreteOptimization). We have slightly modified their function compute_fmap.m.
 
 To triangulate, we use the Triangle library by Jonathan Richard Shewchuk from [here](https://www.cs.cmu.edu/~quake/triangle.html). It is 'triangle.exe' in our repository.
+
+# Citation
+When using the code, please reference the following paper:
+```
+@article{AlphaContours,
+author = {Myronova, Mariia and Neveu, William and Bessmeltsev, Mikhail},
+title = {Differential Operators on Sketches via Alpha Contours},
+year = {2023},
+issue_date = {August 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {42},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3592420},
+doi = {10.1145/3592420},
+journal = {ACM Trans. Graph.},
+month = {jul},
+articleno = {69},
+numpages = {15},
+keywords = {differential operators, vector graphics, sketch processing}
+}
+```
