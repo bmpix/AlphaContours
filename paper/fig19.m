@@ -117,7 +117,7 @@ meshFilename2 = strcat(filename2,'.obj');
 writeOBJ(strcat(mesh_dir,meshFilename2),nodes2,triangles2);
 
 %% FMAP
-compute_fmap(mesh_dir,meshFilename1,meshFilename2,edgeToTriangle1,edgeToTriangle2,pointSize,filename1,edgeWidth,false)
+compute_fmap(mesh_dir,meshFilename1,meshFilename2,edgeToTriangle1,edgeToTriangle2,pointSize,edgeWidth,false)
 
 
 

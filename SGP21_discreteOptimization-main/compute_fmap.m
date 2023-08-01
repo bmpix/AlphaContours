@@ -1,4 +1,4 @@
-function E = compute_fmap(mesh_dir, filename1, filename2, allEdges_source, allEdges_target, pointSize,filename, edgeWidth,quiet)
+function E = compute_fmap(mesh_dir, filename1, filename2, allEdges_source, allEdges_target, pointSize, edgeWidth, quiet)
 %%
 if (nargin==8)
     quiet = true;
@@ -75,7 +75,7 @@ visualize_map_on_source(S2, S1, T21_multi, allEdges_source, pointSize, edgeWidth
 subplot(1,2,2); 
 % Target
 visualize_map_on_target(S2, S1, T21_ours, allEdges_target, pointSize, edgeWidth, landmarks2); view([0,90]);
-%exportgraphics(f1, strcat('./output/',filename,'_test_fmap.pdf'), 'ContentType','vector');
+%exportgraphics(f1, strcat('./output/',filename1,'_test_fmap.pdf'), 'ContentType','vector');
 end
 end
 

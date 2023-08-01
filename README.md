@@ -45,4 +45,32 @@ cmake ../
 Then build the visual studio project as usual. Then move the binary, together with mpfr-6.dll and gmp-10.dll into AlphaContours/bin.
 
 # Reference Binary
-If you don't want to compile anything, [here](http://www-labs.iro.umontreal.ca/~bmpix/AlphaContours/AlphaContoursBinary.zip) is the reference binary for Windows.
+If you don't want to compile anything, [here](http://www-labs.iro.umontreal.ca/~bmpix/AlphaContours/AlphaContoursBinary.zip) is the reference binary for Windows. Unzip it into AlphaContours/bin. After that, you should be able to run reproduce all the figures by running the scripts in the paper/ folder, except for Fig.16 that requires installation of [StrokeStrip](https://github.com/davepagurek/StrokeStrip) and [StrokeAggregator](https://www.cs.ubc.ca/labs/imager/tr/2018/StrokeAggregator/).
+
+# External code
+To compute functional maps on our domains, we use the implementation of "Discrete Optimization for Shape Matching" by Jing Ren, Simone Melzi, Peter Wonka, and Maks Ovsjanikov from [here](https://github.com/llorz/SGP21_discreteOptimization). We have slightly modified their function compute_fmap.m.
+
+To triangulate, we use the Triangle library by Jonathan Richard Shewchuk from [here](https://www.cs.cmu.edu/~quake/triangle.html). It is 'triangle.exe' in our repository.
+
+# Citation
+When using the code, please reference the following paper:
+```
+@article{AlphaContours,
+author = {Myronova, Mariia and Neveu, William and Bessmeltsev, Mikhail},
+title = {Differential Operators on Sketches via Alpha Contours},
+year = {2023},
+issue_date = {August 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {42},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3592420},
+doi = {10.1145/3592420},
+journal = {ACM Trans. Graph.},
+month = {jul},
+articleno = {69},
+numpages = {15},
+keywords = {differential operators, vector graphics, sketch processing}
+}
+```
